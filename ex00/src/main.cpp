@@ -5,6 +5,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #define DOCTEST_CONFIG_NO_POSIX_SIGNALS
 #include "doctest.h"
+
 #include "whatever.hpp"
 
 TEST_CASE("swap integers")
@@ -20,8 +21,8 @@ TEST_CASE("min and max integers")
 {
     int a = 5;
     int b = 10;
-    CHECK(min(a, b) == 5);
-    CHECK(max(a, b) == 10);
+    CHECK(::min(a, b) == 5);
+    CHECK(::max(a, b) == 10);
 }
 
 TEST_CASE("swap strings")
@@ -37,8 +38,8 @@ TEST_CASE("min and max strings")
 {
     std::string a = "apple";
     std::string b = "banana";
-    CHECK(min(a, b) == "apple");
-    CHECK(max(a, b) == "banana");
+    CHECK(::min(a, b) == "apple");
+    CHECK(::max(a, b) == "banana");
 }
 
 /*
