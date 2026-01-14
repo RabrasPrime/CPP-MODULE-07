@@ -7,7 +7,6 @@
 #include "doctest.h"
 
 #include "Array.hpp"
-#include <stdexcept>
 
 TEST_CASE("Array default constructor")
 {
@@ -55,3 +54,29 @@ TEST_CASE("Array out of bounds access")
     CHECK_THROWS_AS(arr[3], std::out_of_range);
     CHECK_THROWS_AS(arr[100], std::out_of_range);
 }
+
+/*
+int main() {
+    Array<int> intArray(5);
+    for (unsigned int i = 0; i < intArray.size(); i++)
+        intArray[i] = i * 10;
+
+    for (unsigned int i = 0; i < intArray.size(); i++)
+        std::cout << "intArray[" << i << "] = " << intArray[i] << std::endl;
+
+    Array<std::string> strArray(3);
+    strArray[0] = "Hello";
+    strArray[1] = "World";
+    strArray[2] = "!";
+
+    for (unsigned int i = 0; i < strArray.size(); i++)
+        std::cout << "strArray[" << i << "] = " << strArray[i] << std::endl;
+
+    try {
+        std::cout << strArray[3] << std::endl; // This should throw an exception
+    } catch (const std::out_of_range &e) {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
+    return 0;
+}*/
