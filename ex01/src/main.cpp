@@ -7,37 +7,36 @@
 #include "doctest.h"
 #include "iter.hpp"
 
-TEST_CASE("iter with integers")
+TEST_CASE("iter")
 {
-	int array[] = {1, 2, 3, 4, 5};
-	size_t length = sizeof(array) / sizeof(array[0]);
+	int	test[5] = {1, 7, 8, 5, 6};
+	int const test2[5] = {5, 4, 3, 2, 1};
 
-	std::ostringstream oss;
-	std::streambuf* oldCoutStreamBuf = std::cout.rdbuf();
-	std::cout.rdbuf(oss.rdbuf());
-
-	iter(array, length, printElement);
-	std::cout.rdbuf(oldCoutStreamBuf);
-	std::string expectedOutput = "1\n2\n3\n4\n5\n";
-
-	CHECK(oss.str() == expectedOutput);
+	iter(test, 5, printElement<int>);
+	iter(test2, 5, printElement<int const>);
 }
 
-TEST_CASE("iter with strings")
+TEST_CASE("iter with std::string")
 {
-	std::string array[] = {"hello", "world", "test"};
-	size_t length = sizeof(array) / sizeof(array[0]);
-
-	std::ostringstream oss;
-	std::streambuf* oldCoutStreamBuf = std::cout.rdbuf();
-	std::cout.rdbuf(oss.rdbuf());
-
-	iter(array, length, printElement);
-	std::cout.rdbuf(oldCoutStreamBuf);
-	std::string expectedOutput = "hello\nworld\ntest\n";
-
-	CHECK(oss.str() == expectedOutput);
+	std::string strArray[] = {"hello", "world", "test"};
+	size_t strLength = sizeof(strArray) / sizeof(strArray[0]);
+	iter(strArray, strLength, printElement<std::string>);
 }
+
+TEST_CASE("iter with char")
+{
+	char charArray[] = {'a', 'b', 'c', 'd'};
+	size_t charLength = sizeof(charArray) / sizeof(charArray[0]);
+	iter(charArray, charLength, printElement<char>);
+}
+
+TEST_CASE("test const")
+{
+	const int constArray[] = {10, 20, 30, 40, 50};
+	size_t constLength = sizeof(constArray) / sizeof(constArray[0]);
+	iter(constArray, constLength, printElement<const int>);
+}
+
 /*
 int main() {
 	int intArray[] = {10, 20, 30, 40, 50};

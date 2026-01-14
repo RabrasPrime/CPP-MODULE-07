@@ -73,7 +73,7 @@ int main() {
         std::cout << "strArray[" << i << "] = " << strArray[i] << std::endl;
 
     try {
-        std::cout << strArray[3] << std::endl; // This should throw an exception
+        std::cout << strArray[3] << std::endl;
     } catch (const std::out_of_range &e) {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }

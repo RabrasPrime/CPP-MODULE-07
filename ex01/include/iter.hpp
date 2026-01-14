@@ -8,7 +8,7 @@
 #include <iostream>
 
 template <typename T>
-void    printElement(T &element)
+void    printElement(const T &element)
 {
     std::cout << element << std::endl;
 }
