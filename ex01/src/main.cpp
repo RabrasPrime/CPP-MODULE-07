@@ -52,4 +52,5 @@ int main() {
 	size_t charLength = sizeof(charArray) / sizeof(charArray[0]);
 	iter(charArray, charLength, printElement);
 	return 0;
-}*/
+}
+*/
