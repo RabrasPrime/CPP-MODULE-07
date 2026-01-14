@@ -28,7 +28,7 @@ DEPS_BONUS        =   $(patsubst %.cpp, $(BUILD_DIR)%.d, $(SRC_BONUS))
 
 #=-=-=-=-=-=-ROOT-=-=-=-=-=#
 
-SRC =   main.cpp \
+SRC =   ex01.cpp \
 
 #=-=-=-=-=-=-INCLUDES-=-=-=-=-=#
 
